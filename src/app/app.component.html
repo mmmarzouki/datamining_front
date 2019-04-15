@@ -4,19 +4,18 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<h2>Here are some links to help you start: </h2>
-<form class="container">
+<div class="container">
   <div class="form-control row">
     <label class="col-md-2">
       Year: 
     </label>
-    <input type="number" class="form-group col-md-10" id="year" name="year" ([ngModel])="year">
+    <input type="number" class="form-group col-md-10" id="year" name="year" [(ngModel)]="year">
   </div>
   <div class="form-control row">
     <label class="col-md-2">
       country: 
     </label>
-    <select>
+    <select (change)="setCountry($event.target.value)">
       <option (click)="setCountry(0)">
         USA
       </option>
@@ -35,23 +34,23 @@
     <label class="col-md-2">
       Duration: 
     </label>
-    <input type="number" class="form-group col-md-10" id="duration" name="duration" ([ngModel])="duration">
+    <input type="number" class="form-group col-md-10" id="duration" name="duration" [(ngModel)]="duration">
   </div>
   <div class="form-control row">
     <label class="col-md-2">
       Content Rating: 
     </label>
-    <select>
-      <option (click)="setContentRating(0)">
+    <select (change)="setContentRating($event.target.value)">
+      <option>
         R
       </option>
-      <option (click)="setContentRating(1)">
+      <option>
         PG-13
       </option>
-      <option (click)="setContentRating(2)">
+      <option>
         PG
       </option>
-      <option (click)="setContentRating(3)">
+      <option>
         Other
       </option>
     </select>
@@ -60,31 +59,39 @@
     <label class="col-md-2">
       Budget: 
     </label>
-    <input type="number" class="form-group col-md-10" id="budget" name="budget" ([ngModel])="budget">
+    <input type="number" class="form-group col-md-10" id="budget" name="budget" [(ngModel)]="budget">
   </div>
   <div class="form-control row">
     <label class="col-md-2">
-      Number of faces in Poster: 
+      Number of faces: 
     </label>
-    <input type="number" class="form-group col-md-10" id="facenumber" name="facenumber" ([ngModel])="facenumber">
+    <input type="number" class="form-group col-md-10" id="facenumber" name="facenumber" [(ngModel)]="facenumber">
   </div>
   <div class="form-control row">
     <label class="col-md-2">
       Director FB likes: 
     </label>
-    <input type="number" class="form-group col-md-10" id="dir_likes" name="dir_likes" ([ngModel])="dir_likes">
+    <input type="number" class="form-group col-md-10" id="dir_likes" name="dir_likes" [(ngModel)]="dir_likes">
   </div>
   <div class="form-control row">
     <label class="col-md-2">
       Cast FB likes: 
     </label>
-    <input type="number" class="form-group col-md-10" id="cast_likes" name="cast_likes" ([ngModel])="cast_likes">
+    <input type="number" class="form-group col-md-10" id="cast_likes" name="cast_likes" [(ngModel)]="cast_likes">
   </div>
   <div class="form-control row">
     <label class="col-md-2">
       Movie FB likes: 
     </label>
-    <input type="number" class="form-group col-md-10" id="movie_likes" name="movie_likes" ([ngModel])="movie_likes">
+    <input type="number" class="form-group col-md-10" id="movie_likes" name="movie_likes" [(ngModel)]="movie_likes">
   </div>
-</form>
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-success btn-bloc" (click)="predict()">PREDICT</button>
+    </div>
+    <div *ngIf="res !== 0" class="col-md-10">
+      the result is: {{res}}
+    </div>
+  </div>
+</div >
 
