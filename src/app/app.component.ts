@@ -45,8 +45,8 @@ export class AppComponent {
     this.movie.data[6]=this.dir_likes;
     this.movie.data[7]=this.cast_likes;
     this.movie.data[8]=this.movie_likes;
+    console.log(this.movie);
     this.movieService.predict(this.movie).subscribe(res=>{
-      console.log(res);
       this.res = res[0];
     });
   }
