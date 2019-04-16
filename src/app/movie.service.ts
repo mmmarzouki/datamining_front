@@ -17,8 +17,8 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  public predict(movie:Movie): Observable<number[]> {
-    return this.http.post<number[]>(this.url, movie, httpOptions);
+  public predict(movie:Movie): Observable<number[][]> {
+    return this.http.post<number[][]>(this.url, movie, httpOptions);
   }
 
 }

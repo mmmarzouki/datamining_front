@@ -38,6 +38,12 @@
   </div>
   <div class="form-control row">
     <label class="col-md-2">
+      Director: 
+    </label>
+    <input type="text" class="form-group col-md-10" id="director" name="director" [(ngModel)]="director" (change)="setDirectorCat($event.target.value)">
+  </div>
+  <div class="form-control row">
+    <label class="col-md-2">
       Content Rating: 
     </label>
     <select (change)="setContentRating($event.target.value)">
@@ -90,7 +96,7 @@
       <button class="btn btn-success btn-bloc" (click)="predict()">PREDICT</button>
     </div>
     <div *ngIf="res !== 0" class="col-md-10">
-      the result is: {{res}}
+      the result is: {{output}}
     </div>
   </div>
 </div >
